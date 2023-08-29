@@ -1,0 +1,10 @@
+<svg id="Group_97042" data-name="Group 97042" xmlns="http://www.w3.org/2000/svg" width="74.784" height="74.783" viewBox="0 0 74.784 74.783">
+  <g id="Group_97034" data-name="Group 97034">
+    <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="31.804" cy="31.803" rx="31.804" ry="31.803" transform="translate(5.588 5.588)" fill="#4e6be2"/>
+    <ellipse id="Ellipse_7471" data-name="Ellipse 7471" cx="37.392" cy="37.392" rx="37.392" ry="37.392" transform="translate(0)" fill="#4e6be2" opacity="0.6"/>
+  </g>
+  <g id="Group_97039" data-name="Group 97039" transform="translate(22 21)">
+    <path id="Path_209315" data-name="Path 209315" d="M0,0H32V32H0Z" fill="none"/>
+    <path id="Path_209316" data-name="Path 209316" d="M16,27.859l7.15-6.773a9.224,9.224,0,0,0,0-13.544,10.514,10.514,0,0,0-14.3,0,9.224,9.224,0,0,0,0,13.544Zm0,3.869L6.808,23.021a11.859,11.859,0,0,1,0-17.414,13.518,13.518,0,0,1,18.385,0,11.859,11.859,0,0,1,0,17.414ZM16,17.05a2.816,2.816,0,0,0,2.889-2.736,2.893,2.893,0,0,0-5.778,0A2.816,2.816,0,0,0,16,17.05Zm0,2.736a5.631,5.631,0,0,1-5.778-5.473A5.631,5.631,0,0,1,16,8.841a5.631,5.631,0,0,1,5.778,5.473A5.631,5.631,0,0,1,16,19.786Z" transform="translate(0 0.272)" fill="#f5f7f6"/>
+  </g>
+</svg>

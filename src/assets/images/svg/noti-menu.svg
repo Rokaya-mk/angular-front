@@ -1,0 +1,15 @@
+<svg id="Group_53876" data-name="Group 53876" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.368" height="40.138" viewBox="0 0 23.368 40.138">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.8" y1="0.108" x2="0.032" y2="0.932" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#007aff"/>
+      <stop offset="1" stop-color="#1dc8fe"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0" x2="0.5" y2="1" xlink:href="#linear-gradient"/>
+  </defs>
+  <path id="Subtraction_10" data-name="Subtraction 10" d="M11.359,22.718A11.359,11.359,0,0,1,3.327,3.327,11.359,11.359,0,1,1,19.391,19.391,11.285,11.285,0,0,1,11.359,22.718ZM5.116,11.113,4,12.262l4.456,4.6,9.548-9.856-1.114-1.15L8.458,14.562Z" transform="translate(0.65 17.42)" fill="url(#linear-gradient)"/>
+  <g id="Group_53875" data-name="Group 53875">
+    <circle id="Ellipse_3104" data-name="Ellipse 3104" cx="2.596" cy="2.596" r="2.596" fill="url(#linear-gradient-2)"/>
+    <circle id="Ellipse_3105" data-name="Ellipse 3105" cx="2.596" cy="2.596" r="2.596" transform="translate(9.087)" fill="url(#linear-gradient-2)"/>
+    <circle id="Ellipse_3106" data-name="Ellipse 3106" cx="2.596" cy="2.596" r="2.596" transform="translate(18.175)" fill="url(#linear-gradient-2)"/>
+  </g>
+</svg>

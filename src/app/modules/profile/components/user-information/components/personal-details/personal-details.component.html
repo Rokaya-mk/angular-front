@@ -1,0 +1,67 @@
+<form [formGroup]="personalDetails" (submit)="submit()" autocomplete="">
+  <div class="profile-title flex-col-center mb-50">
+    <naw-profile-title title="Profile Details"></naw-profile-title>
+    <div class="user-overview flex-col-center">
+      <div class="user-avatar edit-profile-pic mb-30">
+        <naw-image-input [control]="personalDetails.controls.image" inputId="profileImage"></naw-image-input>
+      </div>
+      <h4 class="name">{{currentUser.name}}</h4>
+      <div class="user-reviews mb-10">
+        <img src="./assets/images/review-1.png" alt="">
+      </div>
+      <p>(340)Reviews, (120)Comments</p>
+    </div>
+  </div>
+  <div class="form-group flex-column max-width-60">
+    <div class="input-group required"
+      [class.invalid]="personalDetails.get('name')?.invalid && (personalDetails.get('name')?.dirty || personalDetails.get('name')?.touched)">
+      <label for="userName">Name</label>
+      <div class="position-relative">
+        <input type="text" formControlName="name" id="userName" value="{{currentUser.name}}"
+          placeholder="Please Enter Your Name">
+        <img src="assets/images/svg/person-fill-bland.svg" alt="" class="icon">
+      </div>
+      <div
+        *ngIf="personalDetails.get('name')?.invalid && (personalDetails.get('name')?.dirty || personalDetails.get('name')?.touched)">
+        <small *ngIf="personalDetails.get('name')?.errors?.['required']">Name is required.</small>
+      </div>
+    </div>
+    <div class="input-group required"
+      [class.invalid]="personalDetails.get('phone')?.invalid && (personalDetails.get('phone')?.dirty || personalDetails.get('phone')?.touched)">
+      <label for="userPhone">Phone Number</label>
+      <div class="international-phone">
+        <span class="state">
+          <img src="assets/images/flag_of_egypt.png" alt="">
+          <input type="text" id="" value="+20" readonly>
+        </span>
+        <div class="position-relative">
+          <input type="text" formControlName="phone" id="userPhone" value="{{currentUser.phone}}"
+            placeholder="Please Enter Your Phone">
+          <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+        </div>
+      </div>
+      <div
+        *ngIf="personalDetails.get('phone')?.invalid && (personalDetails.get('phone')?.dirty || personalDetails.get('phone')?.touched)">
+        <small *ngIf="personalDetails.get('phone')?.errors?.['required']">Phone number is required.</small>
+      </div>
+    </div>
+    <div class="input-group required"
+      [class.invalid]="personalDetails.get('email')?.invalid && (personalDetails.get('email')?.dirty || personalDetails.get('email')?.touched)">
+      <label for="userEmail">Email</label>
+      <div class="position-relative">
+        <input type="email" formControlName="email" id="userEmail" value="{{currentUser.email}}"
+          placeholder="Please Enter Email">
+        <img src="assets/images/svg/envelope-solid.svg" alt="" class="icon">
+      </div>
+      <div
+        *ngIf="personalDetails.get('email')?.invalid && (personalDetails.get('email')?.dirty || personalDetails.get('email')?.touched)">
+        <small *ngIf="personalDetails.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="personalDetails.get('email')?.errors?.['email']">Invalid email address.</small>
+      </div>
+    </div>
+    <div class="flex-col-center mt-50">
+      <a (click)="onResetPassword()" class="btn btn-transparent navy mb-30">Change Password</a>
+      <button type="submit" class="btn btn-navy">Save Changes</button>
+    </div>
+  </div>
+</form>

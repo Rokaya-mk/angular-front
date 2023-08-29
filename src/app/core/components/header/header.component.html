@@ -1,0 +1,179 @@
+<header class="sticky">
+  <div class="container">
+    <div class="header-inner flex-space">
+      <div class="header-main">
+        <a href="#" class="header-logo">
+          <img src="./assets/images/header-logo.png" alt="">
+        </a>
+        <nav>
+          <ul>
+            <li><a routerLink="home" class="active">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a routerLink="careers">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a routerLink="articles/all">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-toolbar">
+        <a href="#" class="language-toggle">
+          عربي
+          <svg id="Group_97029" data-name="Group 97029" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24">
+            <path id="Path_209309" data-name="Path 209309"
+              d="M6.235,6.453A8,8,0,0,0,15.052,19.4a3.456,3.456,0,0,0-.24-1.722,12.3,12.3,0,0,0-2.253-2.844c-.338-.355-.316-.628-.195-1.437l.013-.091c.082-.554.22-.882,2.085-1.178A1.28,1.28,0,0,1,16,12.878l.116.172a1.831,1.831,0,0,0,.938.756c.165.075.37.17.645.325.652.373.652.794.652,1.716v.1a5.249,5.249,0,0,1-.1,1.034A8,8,0,0,0,15.152,4.645,7.877,7.877,0,0,0,13.575,5.91c-.135.185-.327,1.132-.95,1.21a3.667,3.667,0,0,1-.613-.009c-.622-.04-1.472-.095-1.744.644a2.928,2.928,0,0,0,.356,2.4.583.583,0,0,1,.046.519,1.014,1.014,0,0,1-.292.5,2.883,2.883,0,0,1-.419-.43,2.743,2.743,0,0,0-1.211-.96c-.184-.051-.386-.093-.583-.135C7.616,9.532,7,9.4,6.85,9.093a2.163,2.163,0,0,1-.105-.865,3.184,3.184,0,0,0-.2-1.345,1.276,1.276,0,0,0-.306-.43ZM12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22Z"
+              fill="#f5f7f6" />
+          </svg>
+        </a>
+        <ng-template #showSignup>
+          <div class="header-btns d-flex">
+            <a routerLink="login" class="btn btn-transparent light-dark">Log In</a>
+            <a href="#" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#register">Sign Up</a>
+          </div>
+        </ng-template>
+        <div *ngIf="loggedIn else showSignup">
+          <div class="logged-user" [class.driver]="user?.type === 'driver'">
+            <div class="flex-align-center">
+              <div class="user-notifications dropdown">
+                <a href="#" class="notifications-toggle dropdown-toggle" role="button" id="notificationsMenu"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="alert-circle"></span>
+                  <img src="assets/images/svg/bell.svg" alt="">
+                </a>
+                <div class="notifications-menu dropdown-menu" aria-labelledby="notificationsMenu">
+                  <div class="new-notifications">
+                    <div class="flex-space">
+                      <span class="title">New Notifications</span>
+                      <a href="#">See All</a>
+                    </div>
+                    <ul>
+                      <li class="flex-space">
+                        <span class="flex-align-center">
+                          <img src="assets/images/svg/noti-icon-1.svg" alt="">
+                          <p>Order #1123 Was Delivered</p>
+                        </span>
+                        <a href="#">
+                          <img src="assets/images/svg/noti-menu.svg" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="earlier-notifications">
+                    <span class="title">Earlier notification</span>
+                    <ul>
+                      <li class="flex-space">
+                        <span class="flex-align-center">
+                          <img src="assets/images/svg/noti-icon-1.svg" alt="">
+                          <p>Order #1123 Was Delivered</p>
+                        </span>
+                        <a href="#">
+                          <img src="assets/images/svg/noti-menu.svg" alt="">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="header-chat">
+                <span class="alert-circle"></span>
+                <img src="assets/images/svg/chat.svg" alt="">
+              </a>
+              <div class="user-menu">
+                <a href="#" class="user-menu-toggle dropdown-toggle" role="button" id="userMenu"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="avatar">
+                    <img src="./assets/images/default.png" alt="">
+                  </span>
+                  <!-- <span class="avatar">
+                    <ng-template #defaultAvatar>
+                      <img src="assets/images/default.png" alt="" >
+                    </ng-template>
+                    <img src="{{user.image}}" alt="" *ngIf="user.image else defaultAvatar">
+                  </span> -->
+                  <span class="user-name">{{user?.name}}</span>
+                  <img src="assets/images/svg/right-arrow.svg" alt="">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="userMenu">
+                  <ul>
+                    <li>
+                      <a routerLink="profile/details">
+                        <img src="assets/images/svg/person-fill.svg" alt="">
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a routerLink="profile/orders-history">
+                        <img src="assets/images/svg/user-orders.svg" alt="">
+                        My Orders
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="assets/images/svg/account-balance.svg" alt="">
+                        Financial Transactions
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="assets/images/svg/support-agent.svg" alt="">
+                        Our Support Center
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="assets/images/svg/contract-agree.svg" alt="">
+                        Terms & Conditions
+                      </a>
+                    </li>
+                    <li>
+                      <a (click)="logout()">
+                        <img src="assets/images/svg/logout.svg" alt="">
+                        Logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <a routerLink="/new-order" class="btn btn-dark">New Order</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="aside-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="registerLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered zoom-animation">
+    <div class="modal-content fog-background">
+      <div class="bring-to-front">
+        <div class="modal-header flex-center">
+          <h4 class="modal-title text-navy mb-0">Registration Type</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+              <path id="Exclusion_23" data-name="Exclusion 23"
+                d="M26.384,37.578h-14a12,12,0,0,1-12-12v-14a12,12,0,0,1,12-12h14a12,12,0,0,1,12,12v14a12,12,0,0,1-12,12Zm-7-16.4h0L26,27.793l2.6-2.6-6.617-6.617L28.6,11.961,26,9.363,19.384,15.98,12.767,9.363l-2.6,2.6,6.617,6.617-6.617,6.617,2.6,2.6,6.616-6.616Z"
+                transform="translate(-0.384 0.422)" fill="#d27979" />
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="flex-col-center mt-50 pb-60">
+            <a routerLink="/register/service-seeker" class="btn btn-navy" data-bs-dismiss="modal"
+              aria-label="Close">Service Seeker</a>
+            <a routerLink="/register/service-provider" class="btn btn-navy mt-25" data-bs-dismiss="modal"
+              aria-label="Close">Service Provider</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

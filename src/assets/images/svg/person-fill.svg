@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.72" x2="0.105" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#01b6eb"/>
+      <stop offset="0.441" stop-color="#4e6be2"/>
+      <stop offset="1" stop-color="#0c00ff"/>
+    </linearGradient>
+  </defs>
+  <path id="file-earmark-person-fill-svgrepo-com" d="M22.2,12.2A7.2,7.2,0,1,1,15,5,7.2,7.2,0,0,1,22.2,12.2ZM27,26.012V26.6A2.4,2.4,0,0,1,24.6,29H5.4A2.4,2.4,0,0,1,3,26.6v-.588S5.4,21.8,15,21.8,27,26.012,27,26.012Z" transform="translate(-3 -5)" fill="url(#linear-gradient)"/>
+</svg>

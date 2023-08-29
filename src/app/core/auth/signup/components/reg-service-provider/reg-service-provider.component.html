@@ -1,0 +1,393 @@
+<div class="flex-center bring-to-front mb-60">
+  <ul class="nav nav-tabs signup-nav mb-0" id="myTab0" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="personal-tab0" data-bs-toggle="tab" data-bs-target="#personal0" type="button"
+        role="tab" aria-controls="personal" aria-selected="true">
+        Driver
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="company-tab0" data-bs-toggle="tab" data-bs-target="#company0" type="button"
+        role="tab" aria-controls="company" aria-selected="false">
+        company
+      </button>
+    </li>
+  </ul>
+</div>
+<div class="white-container max-width-70 bring-to-front">
+  <div class="form-group flex-column max-width-70">
+    <div class="form-title flex-col-center mb-30">
+      <h2 class="mb-15">Sign Up</h2>
+      <p>Welcome to Nawloan</p>
+    </div>
+    <div class="tab-content" id="myTabContent0">
+      <div class="tab-pane fade show active" id="personal0" role="tabpanel" aria-labelledby="personal-tab0">
+        <form [formGroup]="DriverSignupForm" (ngSubmit)="onDriverSignupSubmit()">
+          <div class="input-group required"
+            [class.invalid]="DriverSignupForm.get('name')?.invalid && (DriverSignupForm.get('name')?.dirty || DriverSignupForm.get('name')?.touched)">
+            <label for="userName">Name</label>
+            <div class="position-relative">
+              <input type="text" formControlName="name" id="userName" placeholder="Please Enter Your Name">
+              <img src="assets/images/svg/person-fill-bland.svg" alt="" class="icon">
+            </div>
+            <div
+              *ngIf="DriverSignupForm.get('name')?.invalid && (DriverSignupForm.get('name')?.dirty || DriverSignupForm.get('name')?.touched)">
+              <small *ngIf="DriverSignupForm.get('name')?.errors?.['required']">Name is required.</small>
+            </div>
+          </div>
+          <!-- <div class="input-group required"
+            [class.invalid]="DriverSignupForm.get('phone')?.invalid && (DriverSignupForm.get('phone')?.dirty || DriverSignupForm.get('phone')?.touched)">
+            <label for="userPhone">Phone Number</label>
+            <div class="international-phone">
+              <span class="state">
+                <img src="assets/images/flag_of_egypt.png" alt="">
+                <input type="text" id="" value="+20" readonly>
+              </span>
+              <div class="position-relative">
+                <input type="text" formControlName="phone" id="userPhone" placeholder="Please Enter Your Phone">
+                <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+              </div>
+            </div>
+            <div
+              *ngIf="DriverSignupForm.get('phone')?.invalid && (DriverSignupForm.get('phone')?.dirty || DriverSignupForm.get('phone')?.touched)">
+              <small *ngIf="DriverSignupForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+            </div>
+          </div> -->
+          <div class="input-group required"
+            [class.invalid]="DriverSignupForm.get('phone')?.invalid && (DriverSignupForm.get('phone')?.dirty && DriverSignupForm.get('phone')?.touched)">
+            <label for="phone">Phone Number</label>
+            <div class="international-phone">
+              <div class="position-relative">
+                <ngx-intl-tel-input [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                  [separateDialCode]="true" [enablePlaceholder]="true" [selectFirstCountry]="false"
+                  [separateDialCode]="true" [selectedCountryISO]="CountryISO.Egypt" [phoneValidation]="true"
+                  [numberFormat]="PhoneNumberFormat.National" formControlName="phone">
+                </ngx-intl-tel-input>
+                <!-- <input formControlName="phone" type="text" id="phone" placeholder="Please Enter Your Phone"
+              nawRemoveLeadingZero> -->
+                <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+              </div>
+            </div>
+            <div
+              *ngIf="DriverSignupForm.get('phone')?.invalid && (DriverSignupForm.get('phone')?.dirty && DriverSignupForm.get('phone')?.touched)">
+              <small *ngIf="DriverSignupForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+            </div>
+          </div>
+          <div class="input-group required"
+            [class.invalid]="DriverSignupForm.get('email')?.invalid && (DriverSignupForm.get('email')?.dirty || DriverSignupForm.get('email')?.touched)">
+            <label for="userEmail">Email</label>
+            <div class="position-relative">
+              <input type="email" formControlName="email" id="userEmail" placeholder="Please Enter Email">
+              <img src="assets/images/svg/envelope-solid.svg" alt="" class="icon">
+            </div>
+            <div
+              *ngIf="DriverSignupForm.get('email')?.invalid && (DriverSignupForm.get('email')?.dirty || DriverSignupForm.get('email')?.touched)">
+              <small *ngIf="DriverSignupForm.get('email')?.errors?.['required']">Email is required.</small>
+              <small *ngIf="DriverSignupForm.get('email')?.errors?.['email']">Invalid email address.</small>
+            </div>
+          </div>
+          <div class="input-group required"
+            [class.invalid]="DriverSignupForm.get('password')?.invalid && (DriverSignupForm.get('password')?.dirty || DriverSignupForm.get('password')?.touched)">
+            <label for="userPassword">password</label>
+            <div class="position-relative">
+              <input type="password" formControlName="password" id="userPassword" placeholder="Please Enter Password">
+              <img src="assets/images/svg/lock.svg" alt="" class="icon">
+            </div>
+            <div
+              *ngIf="DriverSignupForm.get('password')?.invalid && (DriverSignupForm.get('password')?.dirty || DriverSignupForm.get('password')?.touched)">
+              <small *ngIf="DriverSignupForm.get('password')?.errors?.['required']">Password is required.</small>
+              <small
+                *ngIf="DriverSignupForm.get('password')?.touched && DriverSignupForm.get('password')?.errors?.['minlength']">
+                Password must be at least 8 characters long.
+              </small>
+            </div>
+          </div>
+          <div class="input-group mb-0 required"
+            [class.invalid]="DriverSignupForm.get('confirmPassword')?.invalid && (DriverSignupForm.get('confirmPassword')?.dirty || DriverSignupForm.get('confirmPassword')?.touched)">
+            <label for="userConfirmPassword">Confirm Password</label>
+            <div class="position-relative">
+              <input type="password" formControlName="confirmPassword" id="userConfirmPassword"
+                placeholder="Please Enter Confirm Password">
+              <img src="assets/images/svg/lock.svg" alt="" class="icon">
+            </div>
+            <div
+              *ngIf="DriverSignupForm.get('confirmPassword')?.invalid && (DriverSignupForm.get('confirmPassword')?.dirty || DriverSignupForm.get('confirmPassword')?.touched)">
+              <small *ngIf="DriverSignupForm.get('confirmPassword')?.errors?.['required']">
+                Password confirmation is required.
+              </small>
+              <small *ngIf="DriverSignupForm.get('confirmPassword')?.errors?.['passwordsMatch']">
+                The password confirmation does not match.
+              </small>
+            </div>
+          </div>
+          <div class="form-check mt-15"
+            [class.invalid]="DriverSignupForm.get('acceptTerms')?.invalid && (DriverSignupForm.get('acceptTerms')?.dirty || DriverSignupForm.get('acceptTerms')?.touched)">
+            <input class="form-check-input transparent" type="checkbox" formControlName="acceptTerms"
+              id="userAcceptTerms">
+            <label class="form-check-label" for="userAcceptTerms">
+              By Clicking Sign Up You Agree To Our <a href="">Terms & Conditions</a> And <a href="">Privacy Policy</a>
+            </label>
+            <div
+              *ngIf="DriverSignupForm.get('acceptTerms')?.invalid && (DriverSignupForm.get('acceptTerms')?.dirty || DriverSignupForm.get('acceptTerms')?.touched)">
+              <small *ngIf="DriverSignupForm.get('acceptTerms')?.errors?.['required']">
+                Please make sure to accept our terms and conditions.
+              </small>
+            </div>
+          </div>
+          <div class="flex-col-center mt-40">
+            <button type="submit" class="btn btn-navy">Sign Up</button>
+          </div>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="company0" role="tabpanel" aria-labelledby="company-tab0">
+        <form [formGroup]="companySignupForm" (ngSubmit)="onCompanySignupSubmit()">
+          <div class="form-wizard">
+            <ul class="nav nav-tabs" id="myTab1" role="tablist">
+              <li class="nav-item" [class.current]="companyCurrentStep === 1">
+                <button class="nav-link" [class.active]="companyCurrentStep === 1" (click)="companyCurrentStep = 1"
+                  id="step-1" data-bs-toggle="tab" data-bs-target="#stepOne" type="button" role="tab"
+                  aria-controls="stepOne" aria-selected="true">
+                  <span>1</span> Company Information
+                </button>
+              </li>
+              <li class="nav-item" [class.current]="companyCurrentStep === 2">
+                <button class="nav-link" [class.active]="companyCurrentStep === 2" (click)="companyCurrentStep = 2"
+                  id="step-2" data-bs-toggle="tab" data-bs-target="#stepTwo" type="button" role="tab"
+                  aria-controls="stepTwo" aria-selected="true">
+                  <span>2</span> Bank Information
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent1">
+              <div class="tab-pane" [formGroup]="companySignupStepOne" [class.active.show]="companyCurrentStep === 1"
+                id="stepOne" role="tabpanel" aria-labelledby="step-1">
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('companyName')?.invalid && (companySignupStepOne.get('companyName')?.dirty || companySignupStepOne.get('companyName')?.touched)">
+                  <label for="companyName">Company Name</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="companyName" id="companyName"
+                      placeholder="Please Enter Company Name">
+                    <img src="assets/images/svg/person-fill-bland.svg" alt="" class="icon">
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('companyName')?.invalid && (companySignupStepOne.get('companyName')?.dirty || companySignupStepOne.get('companyName')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('companyName')?.errors?.['required']">Company Name is
+                      required.</small>
+                  </div>
+                </div>
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('phone')?.invalid && (companySignupStepOne.get('phone')?.dirty && companySignupStepOne.get('phone')?.touched)">
+                  <label for="companyPhone">Phone Number</label>
+                  <div class="international-phone">
+                    <div class="position-relative">
+                      <ngx-intl-tel-input [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                        [separateDialCode]="true" [enablePlaceholder]="true" [selectFirstCountry]="false"
+                        [separateDialCode]="true" [selectedCountryISO]="CountryISO.Egypt" [phoneValidation]="true"
+                        [numberFormat]="PhoneNumberFormat.National" formControlName="phone">
+                      </ngx-intl-tel-input>
+                      <!-- <input formControlName="phone" type="text" id="phone" placeholder="Please Enter Your Phone"
+              nawRemoveLeadingZero> -->
+                      <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('phone')?.invalid && (companySignupStepOne.get('phone')?.dirty && companySignupStepOne.get('phone')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('phone')?.errors?.['required']">Phone number is
+                      required.</small>
+                  </div>
+                </div>
+                <!-- <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('phone')?.invalid && (companySignupStepOne.get('phone')?.dirty || companySignupStepOne.get('phone')?.touched)">
+                  <label for="companyPhone">Phone Number</label>
+                  <div class="international-phone">
+                    <span class="state">
+                      <img src="assets/images/flag_of_egypt.png" alt="">
+                      <input type="text" id="" value="+20" readonly>
+                    </span>
+                    <div class="position-relative">
+                      <input type="text" formControlName="phone" id="companyPhone"
+                        placeholder="Please Enter Your Phone">
+                      <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('phone')?.invalid && (companySignupStepOne.get('phone')?.dirty || companySignupStepOne.get('phone')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('phone')?.errors?.['required']">Phone number is
+                      required.</small>
+                  </div>
+                </div> -->
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('email')?.invalid && (companySignupStepOne.get('email')?.dirty || companySignupStepOne.get('email')?.touched)">
+                  <label for="companyEmail">Email</label>
+                  <div class="position-relative">
+                    <input type="email" formControlName="email" id="companyEmail" placeholder="Please Enter Email">
+                    <img src="assets/images/svg/envelope-solid.svg" alt="" class="icon">
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('email')?.invalid && (companySignupStepOne.get('email')?.dirty || companySignupStepOne.get('email')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('email')?.errors?.['required']">Email is required.</small>
+                    <small *ngIf="companySignupStepOne.get('email')?.errors?.['email']">Invalid email address.</small>
+                  </div>
+                </div>
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('password')?.invalid && (companySignupStepOne.get('password')?.dirty || companySignupStepOne.get('password')?.touched)">
+                  <label for="companyPassword">password</label>
+                  <div class="position-relative">
+                    <input type="password" formControlName="password" id="companyPassword"
+                      placeholder="Please Enter Password">
+                    <img src="assets/images/svg/lock.svg" alt="" class="icon">
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('password')?.invalid && (companySignupStepOne.get('password')?.dirty || companySignupStepOne.get('password')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('password')?.errors?.['required']">Password is
+                      required.</small>
+                    <small
+                      *ngIf="companySignupStepOne.get('password')?.touched && companySignupStepOne.get('password')?.errors?.['minlength']">
+                      Password must be at least 8 characters long.
+                    </small>
+                  </div>
+                </div>
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('confirmPassword')?.invalid && (companySignupStepOne.get('confirmPassword')?.dirty || companySignupStepOne.get('confirmPassword')?.touched)">
+                  <label for="companyConfirmPassword">Confirm Password</label>
+                  <div class="position-relative">
+                    <input type="password" formControlName="confirmPassword" id="companyConfirmPassword"
+                      placeholder="Please Enter Confirm Password">
+                    <img src="assets/images/svg/lock.svg" alt="" class="icon">
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('confirmPassword')?.invalid && (companySignupStepOne.get('confirmPassword')?.dirty || companySignupStepOne.get('confirmPassword')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('confirmPassword')?.errors?.['required']">
+                      Password confirmation is required.
+                    </small>
+                    <small *ngIf="companySignupStepOne.get('confirmPassword')?.errors?.['passwordsMatch']">
+                      The password confirmation does not match.
+                    </small>
+                  </div>
+                </div>
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('commercialRecord')?.invalid && (companySignupStepOne.get('commercialRecord')?.dirty || companySignupStepOne.get('commercialRecord')?.touched)">
+                  <label for="commercialRecord">Commercial Record</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="commercialRecord" id="commercialRecord"
+                      placeholder="Please Enter Commercial Record">
+                    <img src="assets/images/svg/record.svg" alt="" class="icon">
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('commercialRecord')?.invalid && (companySignupStepOne.get('commercialRecord')?.dirty || companySignupStepOne.get('commercialRecord')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('commercialRecord')?.errors?.['required']">Commercial Record
+                      is required.</small>
+                  </div>
+                </div>
+                <div class="input-group required"
+                  [class.invalid]="companySignupStepOne.get('companyTaxCard')?.invalid && (companySignupStepOne.get('companyTaxCard')?.dirty || companySignupStepOne.get('companyTaxCard')?.touched)">
+                  <label for="companyTaxCard">Company Tax Card</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="companyTaxCard" id="companyTaxCard"
+                      placeholder="Please Enter Company Tax Card">
+                    <img src="assets/images/svg/commercial-filled-card.svg" alt="" class="icon">
+                  </div>
+                  <div
+                    *ngIf="companySignupStepOne.get('companyTaxCard')?.invalid && (companySignupStepOne.get('companyTaxCard')?.dirty || companySignupStepOne.get('companyTaxCard')?.touched)">
+                    <small *ngIf="companySignupStepOne.get('companyTaxCard')?.errors?.['required']">Company Tax Card is
+                      required.</small>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="companyLocation">Company Location</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="companyLocation" id="companyLocation"
+                      placeholder="Please Enter Company Location">
+                    <img src="assets/images/svg/map-marker-1.svg" alt="" class="icon">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" [formGroup]="companySignupStepTwo" [class.active.show]="companyCurrentStep === 2"
+                id="stepTwo" role="tabpanel" aria-labelledby="step-2">
+                <div class="row">
+                  <div class="col-lg-6 col-12">
+                    <div class="input-group">
+                      <label for="bankName">Bank Name</label>
+                      <div class="position-relative">
+                        <input type="text" formControlName="bankName" id="bankName"
+                          placeholder="Please Enter Bank Name">
+                        <img src="assets/images/svg/bank.svg" alt="" class="icon">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-12">
+                    <div class="input-group">
+                      <label for="branchName">Branch Name</label>
+                      <div class="position-relative">
+                        <input type="text" formControlName="branchName" id="branchName"
+                          placeholder="Please Enter Branch Name">
+                        <img src="assets/images/svg/bank.svg" alt="" class="icon">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="accountHoldersName">Account Holder's Name</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="accountHoldersName" id="accountHoldersName"
+                      placeholder="Please Enter Account Holder's Name">
+                    <img src="assets/images/svg/account.svg" alt="" class="icon">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="bankAccountNumber">Bank Account Number</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="bankAccountNumber" id="bankAccountNumber"
+                      placeholder="Please Enter Bank Account Number">
+                    <img src="assets/images/svg/credits.svg" alt="" class="icon">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="swiftCode">Swift Code</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="swiftCode" id="swiftCode" placeholder="Please Enter SWIFT ID">
+                    <img src="assets/images/svg/credits.svg" alt="" class="icon">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="iban">IBAN</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="iban" id="iban" placeholder="Please Enter IBAN">
+                    <img src="assets/images/svg/iban.svg" alt="" class="icon">
+                  </div>
+                </div>
+                <div class="form-check mt-15"
+                  [class.invalid]="companySignupStepTwo.get('acceptTerms')?.invalid && (companySignupStepTwo.get('acceptTerms')?.dirty || companySignupStepTwo.get('acceptTerms')?.touched)">
+                  <input class="form-check-input transparent" type="checkbox" formControlName="acceptTerms"
+                    id="companyAcceptTerms">
+                  <label class="form-check-label" for="companyAcceptTerms">
+                    By Clicking Sign Up You Agree To Our <a href="">Terms & Conditions</a> And
+                    <a href="">Privacy Policy</a>
+                  </label>
+                  <div
+                    *ngIf="companySignupStepTwo.get('acceptTerms')?.invalid && (companySignupStepTwo.get('acceptTerms')?.dirty || companySignupStepTwo.get('acceptTerms')?.touched)">
+                    <small *ngIf="companySignupStepTwo.get('acceptTerms')?.errors?.['required']">
+                      Please make sure to accept our terms and conditions.
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-wizard-buttons flex-col-center mt-40">
+              <button class="btn btn-transparent navy" [disabled]="companyCurrentStep === 1"
+                (click)="previousStep()">Previous</button>
+              <button class="btn btn-navy" [disabled]="companyCurrentStep === 2" (click)="nextStep()">Next</button>
+              <button type="submit" class="btn btn-navy" [disabled]="companyCurrentStep != 2">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="flex-col-center mt-40">
+      <div class="flex-align-center">
+        <p class="mb-0">Do Have An Account ?</p>
+        <a routerLink="/login">Log In</a>
+      </div>
+    </div>
+  </div>
+</div>

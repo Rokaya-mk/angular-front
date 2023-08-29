@@ -1,0 +1,232 @@
+<form [formGroup]="companyDetails" (submit)="submit()" autocomplete="">
+  <div class="profile-title flex-col-center mb-50">
+    <naw-profile-title title="Profile Details"></naw-profile-title>
+    <div class="user-overview flex-col-center">
+      <div class="user-avatar edit-profile-pic mb-30">
+        <naw-image-input [control]="companyDetails.controls.image" inputId="profileImage"></naw-image-input>
+      </div>
+      <h4 class="name">{{currentUser.name}}</h4>
+      <div class="user-reviews mb-10">
+        <img src="./assets/images/review-1.png" alt="">
+      </div>
+      <p>(340)Reviews, (120)Comments</p>
+    </div>
+  </div>
+  <div class="white-container pa-80">
+    <div class="row col-gap-50">
+      <div class="col-lg-4 col-12">
+        <ul class="nav nav-tabs profile-nav mb-0" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="personal-info-tab" data-bs-toggle="tab" data-bs-target="#personal-info"
+              type="button" role="tab" aria-controls="personal-info" aria-selected="true">
+              Personal Information
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="bank-info-tab" data-bs-toggle="tab" data-bs-target="#bank-info" type="button"
+              role="tab" aria-controls="bank-info" aria-selected="false">
+              Bank Information
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-8 col-12">
+        <div class="tab-content" id="profileTabs">
+          <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
+            <h3 class="text-gray fs-24 mb-25">Company Information</h3>
+            <div class="input-group required"
+              [class.invalid]="companyDetails.get('name')?.invalid && (companyDetails.get('name')?.dirty || companyDetails.get('name')?.touched)">
+              <label for="userName">Company Name</label>
+              <div class="position-relative">
+                <input type="text" formControlName="name" id="userName" value="{{currentUser.name}}"
+                  placeholder="Please Enter Your Company Name">
+                <img src="assets/images/svg/person-fill-bland.svg" alt="" class="icon">
+              </div>
+              <div
+                *ngIf="companyDetails.get('name')?.invalid && (companyDetails.get('name')?.dirty || companyDetails.get('name')?.touched)">
+                <small *ngIf="companyDetails.get('name')?.errors?.['required']">Name is required.</small>
+              </div>
+            </div>
+            <div class="input-group required"
+              [class.invalid]="companyDetails.get('phone')?.invalid && (companyDetails.get('phone')?.dirty || companyDetails.get('phone')?.touched)">
+              <label for="userPhone">Phone Number</label>
+              <div class="international-phone">
+                <span class="state">
+                  <img src="assets/images/flag_of_egypt.png" alt="">
+                  <input type="text" id="" value="+20" readonly>
+                </span>
+                <div class="position-relative">
+                  <input type="text" formControlName="phone" id="userPhone" value="{{currentUser.phone}}"
+                    placeholder="Please Enter Your Phone">
+                  <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+                </div>
+              </div>
+              <div
+                *ngIf="companyDetails.get('phone')?.invalid && (companyDetails.get('phone')?.dirty || companyDetails.get('phone')?.touched)">
+                <small *ngIf="companyDetails.get('phone')?.errors?.['required']">Phone number is required.</small>
+              </div>
+            </div>
+            <div class="input-group required"
+              [class.invalid]="companyDetails.get('email')?.invalid && (companyDetails.get('email')?.dirty || companyDetails.get('email')?.touched)">
+              <label for="userEmail">Email</label>
+              <div class="position-relative">
+                <input type="email" formControlName="email" id="userEmail" value="{{currentUser.email}}"
+                  placeholder="Please Enter Email">
+                <img src="assets/images/svg/envelope-solid.svg" alt="" class="icon">
+              </div>
+              <div
+                *ngIf="companyDetails.get('email')?.invalid && (companyDetails.get('email')?.dirty || companyDetails.get('email')?.touched)">
+                <small *ngIf="companyDetails.get('email')?.errors?.['required']">Email is required.</small>
+                <small *ngIf="companyDetails.get('email')?.errors?.['email']">Invalid email address.</small>
+              </div>
+            </div>
+            <div class="input-group required"
+              [class.invalid]="companyDetails.get('commercial_record')?.invalid && (companyDetails.get('commercial_record')?.dirty || companyDetails.get('commercial_record')?.touched)">
+              <label for="">Commercial Record</label>
+              <div class="position-relative">
+                <input type="text" formControlName="commercial_record" id="" value="{{currentUser.commercial_record}}"
+                  placeholder="Please Enter Commercial Record">
+                <img src="assets/images/svg/record.svg" alt="" class="icon">
+              </div>
+              <div
+                *ngIf="companyDetails.get('commercial_record')?.invalid && (companyDetails.get('commercial_record')?.dirty || companyDetails.get('commercial_record')?.touched)">
+                <small *ngIf="companyDetails.get('commercial_record')?.errors?.['required']">Commercial Record is
+                  required.</small>
+              </div>
+            </div>
+            <div class="input-group required"
+              [class.invalid]="companyDetails.get('tax_card')?.invalid && (companyDetails.get('tax_card')?.dirty || companyDetails.get('tax_card')?.touched)">
+              <label for="tax_card">Company Tax Card</label>
+              <div class="position-relative">
+                <input type="text" formControlName="tax_card" id="tax_card" placeholder="Please Enter Company Tax Card">
+                <img src="assets/images/svg/commercial-filled-card.svg" alt="" class="icon">
+              </div>
+              <div
+                *ngIf="companyDetails.get('tax_card')?.invalid && (companyDetails.get('tax_card')?.dirty || companyDetails.get('tax_card')?.touched)">
+                <small *ngIf="companyDetails.get('tax_card')?.errors?.['required']">Company Tax Card is
+                  required.</small>
+              </div>
+            </div>
+            <div class="input-group required"
+              [class.invalid]="companyDetails.get('location')?.invalid && (companyDetails.get('location')?.dirty || companyDetails.get('location')?.touched)">
+              <label for="">Company Location</label>
+              <div class="position-relative">
+                <input type="text" formControlName="location" id="" placeholder="Please Enter Company Location">
+                <img src="assets/images/svg/map-marker-1.svg" alt="" class="icon">
+              </div>
+              <div
+                *ngIf="companyDetails.get('location')?.invalid && (companyDetails.get('location')?.dirty || companyDetails.get('location')?.touched)">
+                <small *ngIf="companyDetails.get('location')?.errors?.['required']">Company Location is
+                  required.</small>
+              </div>
+            </div>
+            <div class="row d-none">
+              <div class="col-lg-6 col-12">
+                <div class="input-group">
+                  <label for="">longitude</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="longitude" id="" placeholder="Please Enter Bank Name">
+                    <img src="assets/images/svg/bank.svg" alt="" class="icon">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="input-group">
+                  <label for="">latitude</label>
+                  <div class="position-relative">
+                    <input type="text" formControlName="latitude" id="" placeholder="Please Enter Branch Name">
+                    <img src="assets/images/svg/bank.svg" alt="" class="icon">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="dropzone-grid">
+              <div class="dropzone-field">
+                <label for="">Company Picture</label>
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+              <div class="dropzone-field">
+                <label for="">Commercial Record</label>
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+              <div class="dropzone-field">
+                <label for="">Company Tax Card</label>
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                  <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+            </div> -->
+          </div>
+          <div class="tab-pane fade" id="bank-info" role="tabpanel" aria-labelledby="bank-info-tab">
+            <h3 class="text-gray fs-24 mb-25">Bank Information</h3>
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="input-group">
+                  <label for="">Bank Name</label>
+                  <div class="position-relative">
+                    <input type="text" name="" id="" placeholder="Please Enter Bank Name">
+                    <img src="assets/images/svg/bank.svg" alt="" class="icon">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="input-group">
+                  <label for="">Branch Name</label>
+                  <div class="position-relative">
+                    <input type="text" name="" id="" placeholder="Please Enter Branch Name">
+                    <img src="assets/images/svg/bank.svg" alt="" class="icon">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">Account Holder's Name</label>
+              <div class="position-relative">
+                <input type="text" name="" id="" placeholder="Please Enter Account Holder's Name">
+                <img src="assets/images/svg/account.svg" alt="" class="icon">
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">Bank Account Number</label>
+              <div class="position-relative">
+                <input type="text" name="" id="" placeholder="Please Enter Bank Account Number">
+                <img src="assets/images/svg/credits.svg" alt="" class="icon">
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">Swift Code</label>
+              <div class="position-relative">
+                <input type="text" name="" id="" placeholder="Please Enter SWIFT ID">
+                <img src="assets/images/svg/credits.svg" alt="" class="icon">
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="">IBAN</label>
+              <div class="position-relative">
+                <input type="text" name="" id="" placeholder="Please Enter IBAN">
+                <img src="assets/images/svg/iban.svg" alt="" class="icon">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-column mt-50">
+          <a (click)="onResetPassword()" class="btn btn-transparent navy mb-30">Change Password</a>
+          <button type="submit" class="btn btn-navy">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

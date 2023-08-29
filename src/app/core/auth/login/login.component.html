@@ -1,0 +1,56 @@
+<section class="fog-background pt-150 pb-150">
+  <div class="white-container max-width-80 bring-to-front">
+    <div class="form-group flex-column max-width-60">
+      <form [formGroup]="loginForm" (submit)="submit()" autocomplete="">
+        <div class="form-title centered mb-40">
+          <h2 class="mb-0">Welcome to Nawloan</h2>
+        </div>
+        <div class="input-group required"
+          [class.invalid]="loginForm.get('phone')?.invalid && (loginForm.get('phone')?.dirty && loginForm.get('phone')?.touched)">
+          <label for="phone">Phone Number</label>
+          <div class="international-phone">
+            <div class="position-relative">
+              <ngx-intl-tel-input [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                [separateDialCode]="true" [enablePlaceholder]="true" [selectFirstCountry]="false"
+                [separateDialCode]="true" [selectedCountryISO]="CountryISO.Egypt" [phoneValidation]="true"
+                [numberFormat]="PhoneNumberFormat.National" formControlName="phone">
+              </ngx-intl-tel-input>
+              <!-- <input formControlName="phone" type="text" id="phone" placeholder="Please Enter Your Phone"
+                nawRemoveLeadingZero> -->
+              <img src="assets/images/svg/perm-phone.svg" alt="" class="icon">
+            </div>
+          </div>
+          <div
+            *ngIf="loginForm.get('phone')?.invalid && (loginForm.get('phone')?.dirty && loginForm.get('phone')?.touched)">
+            <small *ngIf="loginForm.get('phone')?.errors?.['required']">Phone number is required.</small>
+          </div>
+        </div>
+        <div class="input-group mb-0 required"
+          [class.invalid]="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          <label for="password">password</label>
+          <div class="position-relative">
+            <input formControlName="password" type="password" id="password" placeholder="Please Enter Password">
+            <img src="assets/images/svg/lock.svg" alt="" class="icon">
+          </div>
+          <div
+            *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+            <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+            <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']">
+              Password must be at least 8 characters long.
+            </small>
+          </div>
+        </div>
+        <div class="flex-end mt-15">
+          <a href="">Forgot Password</a>
+        </div>
+        <div class="flex-col-center mt-20">
+          <button type="submit" class="btn btn-navy">Login</button>
+          <div class="flex-align-center mt-40">
+            <p class="mb-0">Don't Have An Account ?</p>
+            <a routerLink="/signup">Sign Up</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

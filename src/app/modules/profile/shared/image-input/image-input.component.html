@@ -1,0 +1,7 @@
+<div class="image-group">
+  <label [for]="inputId">
+    <img src="./assets/images/svg/edit-fill.svg" alt="edit">
+  </label>
+  <input [formControl]="control" type="file" [id]="inputId" (change)="onFileSelected($event)" accept="image/*">
+  <img [src]="imageUrl" class="thumbnail" *ngIf="imageUrl">
+</div>

@@ -1,0 +1,34 @@
+<section class="fog-background white pt-70 pb-100">
+  <div class="container bring-to-front">
+    <div class="section-title centered mb-70">
+      <h2 class="text-navy mb-10 fs-54 text-medium">Careers</h2>
+      <p class="">work with us</p>
+    </div>
+    <div class="career-details">
+      <h4 class="text-black fs-36 mb-25 text-medium text-uppercase">COMMUNITY OPERATIONS</h4>
+      <div class="table-responsive">
+        <table class="table careers-table align-middle mb-0">
+          <tbody>
+            <tr *ngFor="let career of careers">
+              <td>
+                <h5 class="title"> {{career.name_en}} </h5>
+                <p> {{career.desc_en}} </p>
+              </td>
+              <td>
+                <h5 class="title">Location</h5>
+                <span>{{career.address_en}}</span>
+              </td>
+              <td>
+                <h5 class="title">Posted</h5>
+                <span>{{ getPostedTime(career.created_at) }}</span>
+              </td>
+              <td>
+                <a href="#" class="btn btn-navy min-width-270">Read More</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

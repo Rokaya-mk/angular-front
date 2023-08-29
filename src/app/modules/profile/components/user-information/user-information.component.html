@@ -1,0 +1,12 @@
+<div *ngIf="currentUser?.type === 'user'">
+  <naw-personal-details (resetPassword)="onResetPassword()"></naw-personal-details>
+</div>
+<div *ngIf="currentUser?.type === 'factory'">
+  <naw-factory-details (resetPassword)="onResetPassword()"></naw-factory-details>
+</div>
+<div *ngIf="currentUser?.type === 'driver'">
+  <naw-driver-details (resetPassword)="onResetPassword()"></naw-driver-details>
+</div>
+<div *ngIf="currentUser?.type === 'company'">
+  <naw-company-details (resetPassword)="onResetPassword()"></naw-company-details>
+</div>

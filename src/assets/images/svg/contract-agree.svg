@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19.293" height="23.72" viewBox="0 0 19.293 23.72">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.82" y1="0.175" x2="0.287" y2="0.858" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#01b6eb"/>
+      <stop offset="0.441" stop-color="#4e6be2"/>
+      <stop offset="1" stop-color="#0c00ff"/>
+    </linearGradient>
+  </defs>
+  <g id="contract-agree-svgrepo-com" transform="translate(0.001)">
+    <g id="Group_64816" data-name="Group 64816" transform="translate(-0.001)">
+      <path id="Path_208945" data-name="Path 208945" d="M66.288,0H48.577a.791.791,0,0,0-.791.791V22.93a.791.791,0,0,0,.791.791H66.288a.791.791,0,0,0,.791-.791V.791A.791.791,0,0,0,66.288,0ZM53.321,4.217h8.223a.791.791,0,0,1,0,1.581H53.321a.791.791,0,1,1,0-1.581ZM57.432,21.3a2.108,2.108,0,1,1,2.108-2.108A2.111,2.111,0,0,1,57.432,21.3Zm5.8-1.318H61.544a.791.791,0,0,1,0-1.581h1.687a.791.791,0,1,1,0,1.581Zm0-4.8h-11.6a.791.791,0,0,1,0-1.581h11.6a.791.791,0,0,1,0,1.581Zm0-3.11h-11.6a.791.791,0,0,1,0-1.581h11.6a.791.791,0,0,1,0,1.581Zm0-3.11h-11.6a.791.791,0,0,1,0-1.581h11.6a.791.791,0,0,1,0,1.581Z" transform="translate(-47.786)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>

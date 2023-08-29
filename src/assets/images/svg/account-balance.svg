@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.953" height="22.043" viewBox="0 0 24.953 22.043">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.899" y1="0.03" x2="0" y2="0.956" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#06b0ea"/>
+      <stop offset="1" stop-color="#0f05fe"/>
+    </linearGradient>
+  </defs>
+  <g id="account_balance_wallet_black_24dp" transform="translate(-2.542 -3.55)">
+    <g id="Group_97562" data-name="Group 97562" transform="translate(-0.817)">
+      <path id="Path_200399" data-name="Path 200399" d="M25.043,7.9V5.449A2.456,2.456,0,0,0,22.594,3H5.449A2.449,2.449,0,0,0,3,5.449V22.594a2.449,2.449,0,0,0,2.449,2.449H22.594a2.456,2.456,0,0,0,2.449-2.449V20.145A3.066,3.066,0,0,0,26.268,17.7V10.348A3.066,3.066,0,0,0,25.043,7.9Z" transform="translate(0.359 0.55)" fill="url(#linear-gradient)"/>
+      <path id="Exclusion_19" data-name="Exclusion 19" d="M14.228,12.32h0L2.709,12.268a3.313,3.313,0,0,1-1.267-.336,2.648,2.648,0,0,1-1.159-.976A2.168,2.168,0,0,1,0,9.961C0,9.882.045,2.055.153,1.7A2.438,2.438,0,0,1,1.268.472,4.287,4.287,0,0,1,2.8,0l11.39.045.041,12.274ZM6.14,4.34A1.837,1.837,0,1,0,7.977,6.176,1.839,1.839,0,0,0,6.14,4.34Z" transform="translate(13.334 8.395)" stroke="#eae9ef" stroke-width="1.5" fill="url(#linear-gradient)"/>
+    </g>
+    <circle id="Ellipse_3201" data-name="Ellipse 3201" cx="1.579" cy="1.579" r="1.579" transform="translate(17.51 12.61)" fill="#fbfafa" stroke="#fbfafa" stroke-width="1"/>
+  </g>
+</svg>

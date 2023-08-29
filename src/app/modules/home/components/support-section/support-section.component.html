@@ -1,0 +1,75 @@
+<section class="contact-section gray-container pt-100 pb-100">
+  <div class="section-title centered">
+    <h2>Drop A Message</h2>
+    <p>Donec Tempor Finibus Ante Ac Luctus. Fusce Facilisis Nisi Vel Odio Tincidunt Maximus. Pellentesque
+      Tempus Gravida Viverra.</p>
+  </div>
+  <div class="contact-container">
+    <div class="row">
+      <div class="col-lg-7 col-12">
+        <form [formGroup]="supportMessage" (ngSubmit)="submit()">
+          <div class="form-group">
+            <div class="form-title mb-15">
+              <h3>Send Message</h3>
+            </div>
+            <div class="input-group">
+              <label for="">Name</label>
+              <input type="text" name="" id="" placeholder="Please Enter Name">
+            </div>
+            <div class="input-group">
+              <label for="">Email</label>
+              <input type="email" name="" id="" placeholder="Please Enter Email">
+            </div>
+            <div class="input-group">
+              <label for="">Phone Number</label>
+              <div class="international-phone">
+                <span class="state">
+                  <img src="assets/images/flag_of_egypt.png" alt="">
+                  <input type="text" name="" id="" value="+20" disabled readonly>
+                </span>
+                <input type="text" name="" id="" placeholder="Please Enter Your Phone">
+              </div>
+            </div>
+            <div class="input-group required"
+              [class.invalid]="supportMessage.get('title')?.invalid && (supportMessage.get('title')?.dirty || supportMessage.get('title')?.touched)">
+              <label for="">Title</label>
+              <input type="text" formControlName="title" id="" placeholder="Please Enter A Title">
+              <div
+                *ngIf="supportMessage.get('title')?.invalid && (supportMessage.get('title')?.dirty || supportMessage.get('title')?.touched)">
+                <small *ngIf="supportMessage.get('title')?.errors?.['required']">Title is required.</small>
+              </div>
+            </div>
+            <div class="textarea-group required"
+            [class.invalid]="supportMessage.get('message')?.invalid && (supportMessage.get('message')?.dirty || supportMessage.get('message')?.touched)">
+              <label for="">Message</label>
+              <textarea formControlName="message" id="" rows="4" placeholder="Please Enter A Message"></textarea>
+              <div
+                *ngIf="supportMessage.get('message')?.invalid && (supportMessage.get('message')?.dirty || supportMessage.get('message')?.touched)">
+                <small *ngIf="supportMessage.get('message')?.errors?.['required']">TheMessage is required.</small>
+              </div>
+            </div>
+            <div class="flex-center mt-50">
+              <button type="submit" class="btn btn-navy">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-5 col-12">
+        <ul class="contact-list">
+          <li>
+            <img src="assets/images/svg/phone.svg" alt="">
+            01555977744
+          </li>
+          <li>
+            <img src="assets/images/svg/envelope.svg" alt="">
+            Nawloan@gamil.com
+          </li>
+          <li>
+            <img src="assets/images/svg/map-picker.svg" alt="">
+            Magnolia Springs, AL 36555
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

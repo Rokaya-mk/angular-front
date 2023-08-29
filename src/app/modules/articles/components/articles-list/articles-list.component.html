@@ -1,0 +1,21 @@
+<div class="section-title centered mb-100">
+  <h2 class="text-black">Articles</h2>
+  <p>
+    Donec Tempor Finibus Ante Ac Luctus. Fusce Facilisis Nisi Vel Odio Tincidunt Maximus.
+    <br> Pellentesque Tempus Gravida Viverra.
+  </p>
+</div>
+<ul class="articles-list">
+  <li class="article-box" *ngFor="let article of articles">
+    <img src="./assets/images/blog/1.png" alt="">
+    <div class="overview">
+      <div class="flex-space mb-20">
+        <span class="date">{{formatDate(article.article_date)}}</span>
+        <a href="" class="text-navy">{{article.category.category_en}}</a>
+      </div>
+      <h4 class="article-title">{{article.article_en}}</h4>
+      <p [innerHTML]="sanitizeHTML(article.article_desc_en)"></p>
+      <a [routerLink]="['/articles', article.id]" class="read-more">Keep Reading</a>
+    </div>
+  </li>
+</ul>

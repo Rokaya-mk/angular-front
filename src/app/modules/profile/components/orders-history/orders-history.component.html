@@ -1,0 +1,50 @@
+<naw-profile-title title="My Orders"></naw-profile-title>
+<div class="row">
+  <div class="col-lg-4 col-12">
+    <ul class="orders-filter">
+      <li class="active">
+        <button (click)="filter('all')">All Orders</button>
+      </li>
+      <li>
+        <button (click)="filter('pend')">Pending</button>
+      </li>
+      <li>
+        <button (click)="filter('in_progress')">In Progress</button>
+      </li>
+      <li>
+        <button (click)="filter('complete')">Completed</button>
+      </li>
+      <li>
+        <button (click)="filter('cancel')">Cancelled</button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-8 col-12">
+    <div class="orders-history">
+      <div >
+        <div class="my-2"  *ngFor="let item of store.refined; let i = index">
+          <div class="order-item">
+            <div class="flex-align-center">
+              <img src="./assets/images/order-path.png" alt="">
+              <div class="path">
+                <span class="from">{{ item.id }}</span>
+                <span class="to">{{ item.drop_of_address }}</span>
+              </div>
+            </div>
+            <div class="flex-space">
+              <div class="order-date">
+                <div class="date-time">
+                  <span>{{ item.shipping_date }}</span>
+                  <span>08:00 AM</span>
+                </div>
+                <span>Order # {{ item.id }}</span>
+              </div>
+              <span class="order-cost">{{ item.total_price }}</span>
+            </div>
+            <span class="status-label label-success">{{ item.status }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

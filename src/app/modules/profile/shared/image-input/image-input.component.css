@@ -1,0 +1,44 @@
+.image-group{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: transparent linear-gradient(180deg, #FBFBFC 0%, #DBDDE8 100%) 0% 0% no-repeat padding-box;
+}
+
+.image-group>img.thumbnail{
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.image-group input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+}
+
+.image-group label{
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: transparent linear-gradient(180deg, #FBFBFC 0%, #DBDDE8 100%) 0% 0% no-repeat padding-box;
+}
+
+.image-group label img{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
